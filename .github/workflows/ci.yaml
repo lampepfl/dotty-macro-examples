@@ -1,0 +1,36 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container: hseeberger/scala-sbt:8u252_1.3.10_2.13.2
+
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v2
+
+      - name: Cache Ivy
+        uses: actions/cache@v1.1.2
+        with:
+          path: /root/.ivy2/cache
+          key: ${{ runner.os }}-ivy-${{ hashFiles('**/*.sc') }}
+          restore-keys: ${{ runner.os }}-ivy-
+
+      - name: Cache SBT
+        uses: actions/cache@v1.1.2
+        with:
+          path: /root/.sbt
+          key: ${{ runner.os }}-sbt-${{ hashFiles('project/**') }}
+          restore-keys: ${{ runner.os }}-sbt-
+
+      - name: Cache Coursier and Mill
+        uses: actions/cache@v1.1.2
+        with:
+          path: /root/.cache
+          key: ${{ runner.os }}-general-${{ hashFiles('**/*.sc') }}
+          restore-keys: ${{ runner.os }}-general-
+
+      - name: Test
+        run: ./mill test.run

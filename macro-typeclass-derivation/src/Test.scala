@@ -1,0 +1,30 @@
+package dummy
+
+sealed trait People
+case class Person(name: String, address: String, age: Int) extends People
+case class Couple(person1: Person, person2: Person) extends People
+
+object Implicits extends LowPrioImplcits:
+  given as Show[String]:
+    def show(t: String) = t
+
+  given as Show[Int]:
+    def show(t: Int) = t.toString
+end Implicits
+
+trait LowPrioImplcits:
+  inline given [T] as Show[T] = deriveShow[T]
+end LowPrioImplcits
+
+import Implicits.{ given _ }
+
+def display(p: People)(using s: Show[People]) =
+  println(s"Show: ${s.show(p)}")
+
+@main def Test =
+  val p1 = Person("John", "Zurich", 26)
+  val p2 = Person("Ann", "Bern", 23)
+  val c: People = Couple(p1, p2)
+  display(p1)
+  display(p2)
+  display(c)

@@ -1,0 +1,6 @@
+###Scala###
+
+*.class
+*.log
+out/
+.DS_Store

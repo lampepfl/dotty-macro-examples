@@ -7,7 +7,7 @@ Every folder is a separate example. Each example contains a README.md file with 
 
 To run an example:
 
-1. Clone and `cd` into the repo repo using `git clone https://github.com/anatoliykmetyuk/dotty-macro-examples.git && cd dotty-macro-examples`
+1. Clone and `cd` into the repo using `git clone https://github.com/anatoliykmetyuk/dotty-macro-examples.git && cd dotty-macro-examples`
 2. Use `./mill <example_name>.run` command to run the example you are interested in. E.g. `./mill macroTypeclassDerivation.run` runs `macroTypeclassDerivation` example.
 
 ## Examples

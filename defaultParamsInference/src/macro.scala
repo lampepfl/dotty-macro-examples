@@ -1,6 +1,6 @@
 package dummy
 
-import scala.quoted.{ given _, _ }
+import scala.quoted._
 
 inline def defaultParams[T]: Map[String, Any] = ${ defaultParmasImpl[T] }
 

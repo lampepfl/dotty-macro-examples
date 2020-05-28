@@ -1,6 +1,6 @@
 package dummy
 
-import scala.quoted.{ given _, _ }
+import scala.quoted._
 
 // We have a Term, an Expr and a String name
 // 1. Call the field with the given String name on Expr

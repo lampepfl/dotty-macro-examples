@@ -1,6 +1,6 @@
 package dummy
 
-import scala.quoted.{ given _, _ }
+import scala.quoted._
 
 inline def deriveShow[T]: Show[T] = ${ deriveShowImpl[T] }
 

@@ -1,6 +1,6 @@
 package dummy
 
-import scala.quoted.{ given _, _ }
+import scala.quoted._
 
 trait Show:
   def show(t: Int): String
@@ -10,7 +10,6 @@ trait Show:
 inline def mcr: Show = ${ mcrImpl }
 
 def mcrImpl(using QuoteContext): Expr[Show] =
-  import qctx.tasty._
   def process(x: Expr[Int]): Expr[String] =
     println(s"""\u001b[43;1m\u001b[30mDEBUG:\u001b[0m x = ${x.show}""")
     '{"Random"}
@@ -19,6 +18,6 @@ def mcrImpl(using QuoteContext): Expr[Show] =
     new Show {
       override def show(t: Int): String =
         val spliced: String = ${process('{t})}
-        s"The value is ${spliced}"
+        s"The value is ${spliced}" // Note the here the $ is from the s""
     }
   }

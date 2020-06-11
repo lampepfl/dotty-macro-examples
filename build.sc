@@ -1,7 +1,7 @@
 import mill._, scalalib._
 
 trait DottyModule extends ScalaModule {
-  def scalaVersion = "0.25.0-bin-20200518-b5eded6-NIGHTLY"
+  def scalaVersion = "0.25.0-RC1"
 }
 
 object abstractTypeclassBody extends DottyModule

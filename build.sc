@@ -8,6 +8,7 @@ object abstractTypeclassBody extends DottyModule
 object accessMembersByName extends DottyModule
 object defaultParamsInference extends DottyModule
 object macroTypeclassDerivation extends DottyModule
+object fullClassName extends DottyModule
 
 object test extends Module {
   def all = List(
@@ -15,6 +16,7 @@ object test extends Module {
     accessMembersByName,
     defaultParamsInference,
     macroTypeclassDerivation,
+    fullClassName
   )
 
   def run = T {

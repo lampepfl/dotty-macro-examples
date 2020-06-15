@@ -1,0 +1,1 @@
+In this example, we obtain a fully qualified name of a type using macros. To do so, we utilize the TASTy Reflect `Symbol` API to call the `fullName` method which achieves the desired result.

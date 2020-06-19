@@ -1,4 +1,4 @@
-The objective is to implement a macro-powered typeclass derivation for sum and product types. We want to derive the Show type class. Please note that you can probably do the same with https://dotty.epfl.ch/docs/reference/contextual/derivation.html. This example is to illustrate the alternative approach involving macros that may be suitable for more advanced use cases.
+The objective is to implement a macro-powered typeclass derivation for sum and product types. We want to derive the Show type class. Please note that you can do the same with https://dotty.epfl.ch/docs/reference/contextual/derivation.html – see [example](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/typeclassDerivation). This example is to illustrate the alternative approach involving macros that may be suitable for more advanced use cases.
 
 First, we look at the type for which the macro is derived to see if it is a case class or a sealed trait. The derivation for each of these cases is then handled separately.
 

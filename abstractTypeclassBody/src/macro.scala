@@ -9,7 +9,7 @@ trait Show:
 // the result works in a macro
 inline def mcr: Show = ${ mcrImpl }
 
-def mcrImpl(using QuoteContext): Expr[Show] =
+def mcrImpl(using Quotes): Expr[Show] =
   def process(x: Expr[Int]): Expr[String] =
     println(s"""\u001b[43;1m\u001b[30mDEBUG:\u001b[0m x = ${x.show}""")
     '{"Random"}

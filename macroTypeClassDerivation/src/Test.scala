@@ -2,7 +2,7 @@ package dummy
 
 sealed trait People
 case class Person(name: String, address: String, age: Int) extends People
-case class Couple(person1: Person, person2: Person) extends People
+case class Couple(person1: Person, person2: Person)        extends People
 
 object Implicits extends LowPrioImplcits:
   given Show[String] with

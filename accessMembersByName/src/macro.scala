@@ -1,6 +1,6 @@
 package dummy
 
-import scala.quoted._
+import scala.quoted.*
 
 // We have a Term, an Expr and a String name
 // 1. Call the field with the given String name on Expr
@@ -11,11 +11,11 @@ class Show[T](value: T):
   def field: T = value
   def show[T](t: T): String = s"The value is $t"
 
-inline def mcr(expr: Show[_], inline name: String): Any =
+inline def mcr(expr: Show[?], inline name: String): Any =
   ${ mcrImpl('expr, 'name) }
 
-def mcrImpl(expr: Expr[Show[_]], nameExpr: Expr[String])(using Quotes): Expr[Any] =
-  import quotes.reflect._
+def mcrImpl(expr: Expr[Show[?]], nameExpr: Expr[String])(using Quotes): Expr[Any] =
+  import quotes.reflect.*
 
   // Select field by name – use '{$expr.field}.asTerm to see what tree needs to be created
   val exprTree: Term = expr.asTerm

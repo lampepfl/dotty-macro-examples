@@ -1,18 +1,18 @@
 package dummy
 
-import scala.quoted._
+import scala.quoted.*
 
 inline def deriveShow[T]: Show[T] = ${ deriveShowImpl[T] }
 
 def deriveShowImpl[T](using quotes: Quotes, tpe: Type[T]): Expr[Show[T]] =
-  import quotes.reflect._
+  import quotes.reflect.*
   val tpeSym = TypeTree.of[T].symbol
   if tpeSym.flags.is(Flags.Case) then deriveCaseClassShow[T]
   else if tpeSym.flags.is(Flags.Trait & Flags.Sealed) then deriveTraitShow[T]
   else throw RuntimeException(s"Unsupported combination of flags: ${tpeSym.flags.show}")
 
 def deriveTraitShow[T](using quotes: Quotes, tpe: Type[T]): Expr[Show[T]] =
-  import quotes.reflect._
+  import quotes.reflect.*
   val children: List[Symbol] = TypeTree.of[T].symbol.children
 
   def showBody(t: Expr[T]): Expr[String] =
@@ -34,7 +34,7 @@ def deriveTraitShow[T](using quotes: Quotes, tpe: Type[T]): Expr[Show[T]] =
   }
 
 def deriveCaseClassShow[T](using quotes: Quotes, tpe: Type[T]): Expr[Show[T]] =
-  import quotes.reflect._
+  import quotes.reflect.*
   // Getting the case fields of the case class
   val fields: List[Symbol] = TypeTree.of[T].symbol.caseFields
 
@@ -65,7 +65,7 @@ def deriveCaseClassShow[T](using quotes: Quotes, tpe: Type[T]): Expr[Show[T]] =
 
 /** Look up the Shot[$t] typeclass for a given type t */
 def lookupShowFor(using quotes: Quotes)(t: quotes.reflect.TypeRepr): quotes.reflect.Term =
-  import quotes.reflect._
+  import quotes.reflect.*
   val showTpe = TypeRepr.of[Show]
   val tclTpe = showTpe.appliedTo(t)
   Implicits.search(tclTpe) match
@@ -73,7 +73,7 @@ def lookupShowFor(using quotes: Quotes)(t: quotes.reflect.TypeRepr): quotes.refl
 
 /** Composes the tree: $tcl.show($arg) */
 def applyShow(using quotes: Quotes)(tcl: quotes.reflect.Term, arg: quotes.reflect.Term): quotes.reflect.Term =
-  import quotes.reflect._
+  import quotes.reflect.*
   Apply(Select.unique(tcl, "show"), arg :: Nil)
 
 /** Takes a list of branches of the form (condition, action).
@@ -85,7 +85,7 @@ def applyShow(using quotes: Quotes)(tcl: quotes.reflect.Term, arg: quotes.reflec
   */
 def mkIfStatement(using quotes: Quotes)(
   branches: List[(quotes.reflect.Term, quotes.reflect.Term)]): quotes.reflect.Term =
-  import quotes.reflect._
+  import quotes.reflect.*
   branches match
     case (p1, a1) :: xs =>
       If(p1, a1, mkIfStatement(xs))

@@ -1,6 +1,6 @@
 package dummy
 
-import scala.quoted._
+import scala.quoted.*
 
 trait Show:
   def show(t: Int): String

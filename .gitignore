@@ -3,4 +3,8 @@
 *.class
 *.log
 out/
+
+.metals
+.vscode
+
 .DS_Store

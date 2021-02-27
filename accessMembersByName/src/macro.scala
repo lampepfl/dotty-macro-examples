@@ -11,14 +11,15 @@ class Show[T](value: T):
   def field: T = value
   def show[T](t: T): String = s"The value is $t"
 
-inline def mcr(expr: Show[_], inline name: String): Any = ${ mcrImpl('expr, 'name) }
+inline def mcr(expr: Show[_], inline name: String): Any =
+  ${ mcrImpl('expr, 'name) }
 
 def mcrImpl(expr: Expr[Show[_]], nameExpr: Expr[String])(using Quotes): Expr[Any] =
   import quotes.reflect._
 
-  // Select field by name – use '{$expr.field}.unseal to see what tree needs to be created
-  val exprTree: Term = Term.of(expr)
-  val name: String = Unlifted.unapply(nameExpr).get
+  // Select field by name – use '{$expr.field}.asTerm to see what tree needs to be created
+  val exprTree: Term = expr.asTerm
+  val name: String = Expr.unapply(nameExpr).get
   val field: Term = Select.unique(exprTree, name)
 
   // Pass the result to a method call – same technique

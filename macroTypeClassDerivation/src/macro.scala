@@ -16,7 +16,7 @@ def deriveTraitShow[T](using quotes: Quotes, tpe: Type[T]): Expr[Show[T]] =
   val children: List[Symbol] = TypeTree.of[T].symbol.children
 
   def showBody(t: Expr[T]): Expr[String] =
-    val selector: Term = Term.of(t)
+    val selector: Term = t.asTerm
     val ifBranches: List[(Term, Term)] = children.map { sym =>
       val childTpe: TypeTree = TypeIdent(sym)
       val condition: Term = TypeApply(
@@ -44,13 +44,13 @@ def deriveCaseClassShow[T](using quotes: Quotes, tpe: Type[T]): Expr[Show[T]] =
     val fieldTpe: TypeRepr = fieldValDef.tpt.tpe
     val fieldName: String = fieldValDef.name
 
-    val tcl: Term = lookupShowFor(fieldTpe) // Show[$fieldTpe]
+    val tcl: Term = lookupShowFor(fieldTpe)  // Show[$fieldTpe]
     val fieldValue: Term = Select(caseClassTerm, field)  // v.field
     val strRepr: Expr[String] = applyShow(tcl, fieldValue).asExprOf[String]
     '{s"${${Expr(fieldName)}}: ${${strRepr}}"}  // summon[Show[$fieldTpe]].show(v.field)
 
   def showBody(v: Expr[T]): Expr[String] =
-    val vTerm: Term = Term.of(v)
+    val vTerm: Term = v.asTerm
     val valuesExprs: List[Expr[String]] = fields.map(showField(vTerm, _))
     val exprOfList: Expr[List[String]] = Expr.ofList(valuesExprs)
     '{$exprOfList.mkString(", ")}
@@ -81,7 +81,7 @@ def applyShow(using quotes: Quotes)(tcl: quotes.reflect.Term, arg: quotes.reflec
     if $condition1 then $action1
     else if $condition2 then $action2
     ...
-    else throw RuntimeException("Unhandled condition encountered")
+    else throw RuntimeException("Unhandled condition encountered during Show derivation")
   */
 def mkIfStatement(using quotes: Quotes)(
   branches: List[(quotes.reflect.Term, quotes.reflect.Term)]): quotes.reflect.Term =
@@ -89,5 +89,4 @@ def mkIfStatement(using quotes: Quotes)(
   branches match
     case (p1, a1) :: xs =>
       If(p1, a1, mkIfStatement(xs))
-    case Nil => Term.of('{throw RuntimeException("Unhandled condition encountered " +
-      "during Show derivation")})
+    case Nil => ('{throw RuntimeException("Unhandled condition encountered during Show derivation")}).asTerm

@@ -5,8 +5,8 @@ import scala.quoted._
 trait Show:
   def show(t: Int): String
 
-// Objective: to see how calling a function and splicing
-// the result works in a macro
+// Objective:
+// to see how calling a function and splicing the result works in a macro
 inline def mcr: Show = ${ mcrImpl }
 
 def mcrImpl(using Quotes): Expr[Show] =

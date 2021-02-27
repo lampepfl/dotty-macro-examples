@@ -5,7 +5,7 @@ case class Person(name: String, address: String = "Zuricch", foo: Int, age: Int 
 object Person:
   val x = 10
 
-@main def Test =
+@main def test(): Unit =
   val p1 = Person("John", foo = 10)
   println(p1)
   println(defaultParams[Person])

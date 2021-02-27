@@ -7,18 +7,18 @@ trait DottyModule extends ScalaModule {
 object abstractTypeclassBody extends DottyModule
 object accessMembersByName extends DottyModule
 object defaultParamsInference extends DottyModule
-object macroTypeclassDerivation extends DottyModule
 object fullClassName extends DottyModule
 object isMemberOfSealedTraitHierarchy extends DottyModule
+object macroTypeClassDerivation extends DottyModule
 
 object test extends Module {
   def all = List(
     abstractTypeclassBody,
     accessMembersByName,
     defaultParamsInference,
-    macroTypeclassDerivation,
     fullClassName,
     isMemberOfSealedTraitHierarchy,
+    macroTypeClassDerivation,
   )
 
   def run = T {

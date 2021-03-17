@@ -3,6 +3,8 @@
 *.class
 *.log
 out/
+.project
+target
 
 .metals
 .vscode

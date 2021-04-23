@@ -1,9 +1,10 @@
 package foo
 
-import scala.quoted._
+import scala.quoted.*
 
-inline def fullClassName[T]: String = ${ fullClassNameImpl[T] }
+inline def fullClassName[T]: String =
+  ${ fullClassNameImpl[T] }
 
-def fullClassNameImpl[T](using qctx: QuoteContext,
-  tpe: Type[T]): Expr[String] =
-  Expr(tpe.unseal.symbol.fullName)
+def fullClassNameImpl[T](using quotes: Quotes, tpe: Type[T]): Expr[String] =
+  import quotes.reflect.*
+  Expr(TypeTree.of[T].symbol.fullName)

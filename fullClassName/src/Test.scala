@@ -1,11 +1,12 @@
 package foo
 
 trait Foo
-case class Bar(x: Int)
 object Foo:
   trait Nested
 
-@main def Test =
+case class Bar(x: Int)
+
+@main def test(): Unit =
   println("Full name of Foo is " + fullClassName[Foo])
   println("Full name of Bar is " + fullClassName[Bar])
   println("Full name of Foo is " + fullClassName[Foo.type])

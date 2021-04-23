@@ -1,10 +1,13 @@
-import scala.quoted._
+package dummy
 
-inline def isMemberOfSealedHierarchy[T]: Boolean = ${ isMemberOfSealedHierarchyImpl[T] }
+import scala.quoted.*
 
-def isMemberOfSealedHierarchyImpl[T](using qctx: QuoteContext,
-  tpe: Type[T]): Expr[Boolean] =
-  import qctx.tasty._
+inline def isMemberOfSealedHierarchy[T]: Boolean =
+  ${ isMemberOfSealedHierarchyImpl[T] }
 
-  val parents = tpe.unseal.tpe.baseClasses
-  Expr(parents.exists { p => p.flags.is(Flags.Sealed) })
+def isMemberOfSealedHierarchyImpl[T](using quotes: Quotes,
+                                           tpe: Type[T]): Expr[Boolean] =
+  import quotes.reflect.*
+
+  val parents = TypeRepr.of[T].baseClasses
+  Expr(parents.exists(_.flags.is(Flags.Sealed)))

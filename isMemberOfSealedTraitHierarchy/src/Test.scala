@@ -1,3 +1,5 @@
+package dummy
+
 case class OnItsOwn(x: Int)
 
 trait Foo
@@ -8,12 +10,11 @@ case class BarMember(x: Int) extends Bar
 trait Nested extends Bar
 case class NestedMember(x: Int) extends Nested
 
-@main def Test =
-  println("OnItsOwn is member of a sealed trait hierarchy: " +
-    isMemberOfSealedHierarchy[OnItsOwn])
-  println("FooMember is member of a sealed trait hierarchy: " +
-    isMemberOfSealedHierarchy[FooMember])
-  println("BarMember is member of a sealed trait hierarchy: " +
-    isMemberOfSealedHierarchy[BarMember])
-  println("NestedMember is member of a sealed trait hierarchy: " +
-    isMemberOfSealedHierarchy[NestedMember])
+@main def test(): Unit =
+  def printResult(name: String, result: Boolean): Unit =
+    println(f"$name is a member of a sealed trait hierarchy: $result")
+
+  printResult("OnItsOwn", isMemberOfSealedHierarchy[OnItsOwn])
+  printResult("FooMember", isMemberOfSealedHierarchy[FooMember])
+  printResult("BarMember", isMemberOfSealedHierarchy[BarMember])
+  printResult("NestedMember", isMemberOfSealedHierarchy[NestedMember])

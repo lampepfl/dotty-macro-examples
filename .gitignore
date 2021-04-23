@@ -3,4 +3,10 @@
 *.class
 *.log
 out/
+.project
+target
+
+.metals
+.vscode
+
 .DS_Store

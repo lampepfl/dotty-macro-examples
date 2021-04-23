@@ -1,5 +1,5 @@
 package dummy
 
-@main def Test =
+@main def test(): Unit =
   val show = mcr
   println(show.show(10))

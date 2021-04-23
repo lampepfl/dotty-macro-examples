@@ -1,13 +1,12 @@
 package dummy
 
-import scala.quoted._
+import scala.quoted.*
 
 inline def defaultParams[T]: Map[String, Any] = ${ defaultParmasImpl[T] }
 
-def defaultParmasImpl[T](using qctx: QuoteContext,
-  tpe: Type[T]): Expr[Map[String, Any]] =
-  import qctx.tasty._
-  val sym = tpe.unseal.symbol
+def defaultParmasImpl[T](using quotes: Quotes, tpe: Type[T]): Expr[Map[String, Any]] =
+  import quotes.reflect.*
+  val sym = TypeTree.of[T].symbol
   val comp = sym.companionClass
   val names =
     for p <- sym.caseFields if p.flags.is(Flags.HasDefault)
@@ -17,10 +16,10 @@ def defaultParmasImpl[T](using qctx: QuoteContext,
 
   val body = comp.tree.asInstanceOf[ClassDef].body
   val idents: List[Ref] =
-    for case deff @ DefDef(name, _, _, _, tree) <- body
+    for case deff @ DefDef(name, _, _, _) <- body
     if name.startsWith("$lessinit$greater$default")
     yield Ref(deff.symbol)
   val identsExpr: Expr[List[Any]] =
-    Expr.ofList(idents.map(_.seal))
+    Expr.ofList(idents.map(_.asExpr))
 
   '{ $namesExpr.zip($identsExpr).toMap }

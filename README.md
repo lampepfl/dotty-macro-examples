@@ -16,12 +16,12 @@ To run an example:
 
 ## Examples
 
-- [abstractTypeclassBody](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/abstractTypeclassBody) – how to abstract a body of a function inside a macro-generated class into a separate macro.
+- [abstractTypeClassBody](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/abstractTypeClassBody) – how to abstract a body of a function inside a macro-generated class into a separate macro.
 - [accessMembersByName](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/accessMembersByName) – access an arbitrary member of a value given this member's name as a `String`.
 - [defaultParamsInference](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/defaultParamsInference) – given a case class with default parameters, obtain the values of these default parameters.
 - [fullClassName](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/fullClassName) - get a fully qualified name of a class.
 - [isMemberOfSealedTraitHierarchy](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/isMemberOfSealedTraitHierarchy) - check if a class inherits from a sealed trait.
-- [macroTypeClassDerivation](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/macroTypeclassDerivation) – typeclass construction done with TASTy Reflect.
+- [macroTypeClassDerivation](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/macroTypeClassDerivation) – typeclass construction done with TASTy Reflect.
 
 ## Tips and Tricks
 

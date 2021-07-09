@@ -10,6 +10,7 @@ object defaultParamsInference         extends DottyModule
 object fullClassName                  extends DottyModule
 object isMemberOfSealedTraitHierarchy extends DottyModule
 object macroTypeClassDerivation       extends DottyModule
+object accessEnclosingParameters      extends DottyModule
 
 object test extends Module {
   def all = List(
@@ -19,6 +20,7 @@ object test extends Module {
     fullClassName,
     isMemberOfSealedTraitHierarchy,
     macroTypeClassDerivation,
+    accessEnclosingParameters
   )
 
   def run = T {

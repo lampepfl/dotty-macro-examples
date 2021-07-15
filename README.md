@@ -23,6 +23,7 @@ To run an example:
 - [fullClassName](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/fullClassName) - get a fully qualified name of a class.
 - [isMemberOfSealedTraitHierarchy](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/isMemberOfSealedTraitHierarchy) - check if a class inherits from a sealed trait.
 - [macroTypeClassDerivation](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/macroTypeClassDerivation) – typeclass construction done with TASTy Reflect.
+- [outOfScopeMethodCall](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/outOfScopeMethodCall) – get a reference to `this` where the type of `this` may not be known on macro definition site, and call a method on `this`.
 
 ## Tips and Tricks
 

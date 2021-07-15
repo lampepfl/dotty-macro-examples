@@ -25,6 +25,7 @@ To run an example:
 - [macroTypeClassDerivation](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/macroTypeClassDerivation) – typeclass construction done with TASTy Reflect.
 - [outOfScopeMethodCall](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/outOfScopeMethodCall) – get a reference to `this` where the type of `this` may not be known on macro definition site, and call a method on `this`.
 - [outOfScopeTypeParam](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/outOfScopeTypeParam) – get a reference to a type that is not available to the macro definition's scope. Then use this reference as a type parameter to call a method.
+- [outOfScopeClassConstructor](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/outOfScopeClassConstructor) – get a reference to a type that is not available to the macro definition's scope. Then use this reference to construct an instance of that type via `new`.
 
 ## Tips and Tricks
 

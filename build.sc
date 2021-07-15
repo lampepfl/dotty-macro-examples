@@ -13,6 +13,7 @@ object macroTypeClassDerivation       extends DottyModule
 object accessEnclosingParameters      extends DottyModule
 object outOfScopeMethodCall           extends DottyModule
 object outOfScopeTypeParam            extends DottyModule
+object outOfScopeClassConstructor     extends DottyModule
 
 object test extends Module {
   def all = List(
@@ -25,6 +26,7 @@ object test extends Module {
     accessEnclosingParameters,
     outOfScopeMethodCall,
     outOfScopeTypeParam,
+    outOfScopeClassConstructor,
   )
 
   def run = T {

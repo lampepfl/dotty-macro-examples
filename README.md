@@ -2,7 +2,7 @@
 
 ![CI](https://github.com/anatoliykmetyuk/dotty-macro-examples/workflows/CI/badge.svg)
 
-This repo contains a bunch of examples of doing metaprogramming in Scala 3.
+This repo contains a bunch of examples of doing metaprogramming in Scala 3 using the low level reflection API.
 
 Every folder is a separate example. Each example contains a README.md file with a description of what the example does.
 
@@ -26,7 +26,7 @@ To run an example:
 
 ## Tips and Tricks
 
-- When working with TASTy reflect, all of the API available to you is defined in the `dotty/library/src/scala/quoted/Quotes.scala`.
+- When working with reflect API, all of the API available to you is defined in the `dotty/library/src/scala/quoted/Quotes.scala`.
   As a rule, for every reflected type `X`, you have a group of extension methods in `trait XMethods` which defines all of the methods you can call on `X`.
   For example, for `Symbol`, you can search for `SymbolMethods` in `Quotes.scala` to see what you can do with it.
 - `TypeTree.of[T]` gives you a `quotes.reflect.TypeTree`. To get a `quotes.reflect.TypeRepr`, you can call `TypeRepr.of[T]`.

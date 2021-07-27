@@ -11,6 +11,10 @@ object fullClassName                  extends DottyModule
 object isMemberOfSealedTraitHierarchy extends DottyModule
 object macroTypeClassDerivation       extends DottyModule
 object accessEnclosingParameters      extends DottyModule
+object outOfScopeMethodCall           extends DottyModule
+object outOfScopeTypeParam            extends DottyModule
+object outOfScopeClassConstructor     extends DottyModule
+object buildingCustomASTs             extends DottyModule
 
 object test extends Module {
   def all = List(
@@ -20,7 +24,11 @@ object test extends Module {
     fullClassName,
     isMemberOfSealedTraitHierarchy,
     macroTypeClassDerivation,
-    accessEnclosingParameters
+    accessEnclosingParameters,
+    outOfScopeMethodCall,
+    outOfScopeTypeParam,
+    outOfScopeClassConstructor,
+    buildingCustomASTs,
   )
 
   def run = T {

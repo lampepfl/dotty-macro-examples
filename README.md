@@ -22,11 +22,11 @@ To run an example:
 - [defaultParamsInference](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/defaultParamsInference) – given a case class with default parameters, obtain the values of these default parameters.
 - [fullClassName](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/fullClassName) - get a fully qualified name of a class.
 - [isMemberOfSealedTraitHierarchy](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/isMemberOfSealedTraitHierarchy) - check if a class inherits from a sealed trait.
-- [macroTypeClassDerivation](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/macroTypeClassDerivation) – typeclass construction done with TASTy Reflect.
+- [macroTypeClassDerivation](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/macroTypeClassDerivation) – typeclass construction done with Quotes Reflection.
 - [outOfScopeMethodCall](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/outOfScopeMethodCall) – get a reference to `this` where the type of `this` may not be known on macro definition site, and call a method on `this`.
 - [outOfScopeTypeParam](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/outOfScopeTypeParam) – get a reference to a type that is not available to the macro definition's scope. Then use this reference as a type parameter to call a method.
 - [outOfScopeClassConstructor](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/outOfScopeClassConstructor) – get a reference to a type that is not available to the macro definition's scope. Then use this reference to construct an instance of that type via `new`.
-- [buildingCustomASTs](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/buildingCustomASTs) – TASTy Reflect's ASTs are powerful, but how do you know the right way to build one? This example demonstrates how to inspect compiler-generated ASTs for a given Scala code. You can then mimic the compiler when constructing similar ASTs.
+- [buildingCustomASTs](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/buildingCustomASTs) – Quotes Reflection ASTs are powerful, but how do you know the right way to build one? This example demonstrates how to inspect compiler-generated ASTs for a given Scala code. You can then mimic the compiler when constructing similar ASTs.
 
 ## Tips and Tricks
 

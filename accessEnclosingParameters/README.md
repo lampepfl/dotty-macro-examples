@@ -1,6 +1,6 @@
 # Obtain References To The Arguments of the Enclosing Method using Macros
 
-We utilize the TASTy Reflect `Symbol` API to call the `spliceOwner` method which accesses the
+We utilize the Quotes Reflection `Symbol` API to call the `spliceOwner` method which accesses the
 top level splice that called the macro. We then call `owner` on that Symbol to get the definition
 that calls the macro method.
 

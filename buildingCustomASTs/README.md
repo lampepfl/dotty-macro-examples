@@ -1,4 +1,4 @@
-Often the power of quotes is not enough and you want to use TASTy Reflect to build ASTs of your desired macro expansion directly. However, building ASTs is confusing. How do you know the correct structure? E.g. if you want to build a tree corresponding to a call `f("Hello World")`, how do you do that?
+Often the power of quotes is not enough and you want to use Quotes Reflection to build ASTs of your desired macro expansion directly. However, building ASTs is confusing. How do you know the correct structure? E.g. if you want to build a tree corresponding to a call `f("Hello World")`, how do you do that?
 
 The answer is, create a quote with the code similar to the one you want to generate, obtain AST representation of it and build your AST following that example.
 

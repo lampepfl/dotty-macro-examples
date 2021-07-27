@@ -3,7 +3,7 @@
 We first obtain the list of all the parents of the given type. Then, we see if any of the parents
 has the `Sealed` flag.
 
-To obtain the list of all the parents, we utilize the TASTy Reflect `TypeRepr` API. We first obtain
+To obtain the list of all the parents, we utilize the Quotes Reflection `TypeRepr` API. We first obtain
 a `TypeRepr` via calling `TypeRepr.of[T]`. We then call `baseClasses` defined in the API of
 `TypeRepr` which gives us a `List[Symbol]` with all the parents of the given type.
 

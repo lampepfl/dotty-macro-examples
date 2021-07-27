@@ -15,6 +15,7 @@ object outOfScopeMethodCall           extends DottyModule
 object outOfScopeTypeParam            extends DottyModule
 object outOfScopeClassConstructor     extends DottyModule
 object buildingCustomASTs             extends DottyModule
+object contextParamResolution         extends DottyModule
 
 object test extends Module {
   def all = List(
@@ -29,6 +30,7 @@ object test extends Module {
     outOfScopeTypeParam,
     outOfScopeClassConstructor,
     buildingCustomASTs,
+    contextParamResolution,
   )
 
   def run = T {

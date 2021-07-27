@@ -27,6 +27,8 @@ To run an example:
 - [outOfScopeTypeParam](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/outOfScopeTypeParam) – get a reference to a type that is not available to the macro definition's scope. Then use this reference as a type parameter to call a method.
 - [outOfScopeClassConstructor](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/outOfScopeClassConstructor) – get a reference to a type that is not available to the macro definition's scope. Then use this reference to construct an instance of that type via `new`.
 - [buildingCustomASTs](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/buildingCustomASTs) – Quotes Reflection ASTs are powerful, but how do you know the right way to build one? This example demonstrates how to inspect compiler-generated ASTs for a given Scala code. You can then mimic the compiler when constructing similar ASTs.
+- [contextParamResolution](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/contextParamResolution) – showcases how to use Quotes Reflection to construct an AST for a method call that takes context parameters. Shows how to resolve those parameters using Quotes Reflection API.
+
 
 ## Tips and Tricks
 

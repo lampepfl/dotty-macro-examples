@@ -1,0 +1,5 @@
+This example demonstrates how to construct an AST tree of a method call if it takes context parameters (formerly known as implicit parameters). If you have a method `f(using Bar)`, you can call it as `f` in your program, and `Bar` will be resolved by the compiler automatically. However, when working with quotes reflection, you cannot construct a tree corresponding to `f` and expect it to represent a valid method call. You need to resolve the context parameters manually and inject them into the tree you are constructing.
+
+To do so, you can use the `Implicits.search` API. Once you've obtained a term via this API, you can use it in the `Apply` node as an ordinary application parameter.
+
+This example assumes that we have neither the method `f` nor its context parameter type `Bar` available on macro definition site. So, to construct the ASTs representing them, we need to use their Symbols obtained via `Symbol` API. `Implicits.search` requires a `TypeRepr` as an argument, which can be obtained from `TypeIdent` via `tpe` method.

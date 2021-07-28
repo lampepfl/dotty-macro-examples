@@ -1,0 +1,5 @@
+Often the power of quotes is not enough and you want to use Quotes Reflection to build ASTs of your desired macro expansion directly. However, building ASTs is confusing. How do you know the correct structure? E.g. if you want to build a tree corresponding to a call `f("Hello World")`, how do you do that?
+
+The answer is, create a quote with the code similar to the one you want to generate, obtain AST representation of it and build your AST following that example.
+
+You can use `'{println("Hello World")}.asTerm` to get the AST structure of `println("Hello World")` call. Upon printing it, you will learn that the structure is `Apply(Ident(println),List(Literal(Constant(Hello World))))`. Now, you can follow this example to create a tree that corresponds to the `f("Hello World")` call by replacing `println` with `f` (and looking at the API within [`Quotes.scala`](https://github.com/lampepfl/dotty/blob/master/library/src/scala/quoted/Quotes.scala) to build the trees).

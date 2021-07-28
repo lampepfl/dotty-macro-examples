@@ -2,7 +2,7 @@
 
 ![CI](https://github.com/anatoliykmetyuk/dotty-macro-examples/workflows/CI/badge.svg)
 
-This repo contains a bunch of examples of doing metaprogramming in Scala 3.
+This repo contains a bunch of examples of doing metaprogramming in Scala 3 using the low level reflection API.
 
 Every folder is a separate example. Each example contains a README.md file with a description of what the example does.
 
@@ -16,16 +16,23 @@ To run an example:
 
 ## Examples
 
-- [abstractTypeclassBody](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/abstractTypeclassBody) – how to abstract a body of a function inside a macro-generated class into a separate macro.
+- [abstractTypeClassBody](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/abstractTypeClassBody) – how to abstract a body of a function inside a macro-generated class into a separate macro.
 - [accessMembersByName](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/accessMembersByName) – access an arbitrary member of a value given this member's name as a `String`.
+- [accessEnclosingParameters](https://github.com/lampepfl/dotty-macro-examples/tree/master/accessEnclosingParameters) - access the arguments passed to the enclosing method of the macro call.
 - [defaultParamsInference](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/defaultParamsInference) – given a case class with default parameters, obtain the values of these default parameters.
 - [fullClassName](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/fullClassName) - get a fully qualified name of a class.
 - [isMemberOfSealedTraitHierarchy](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/isMemberOfSealedTraitHierarchy) - check if a class inherits from a sealed trait.
-- [macroTypeClassDerivation](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/macroTypeclassDerivation) – typeclass construction done with TASTy Reflect.
+- [macroTypeClassDerivation](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/macroTypeClassDerivation) – typeclass construction done with Quotes Reflection.
+- [outOfScopeMethodCall](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/outOfScopeMethodCall) – get a reference to `this` where the type of `this` may not be known on macro definition site, and call a method on `this`.
+- [outOfScopeTypeParam](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/outOfScopeTypeParam) – get a reference to a type that is not available to the macro definition's scope. Then use this reference as a type parameter to call a method.
+- [outOfScopeClassConstructor](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/outOfScopeClassConstructor) – get a reference to a type that is not available to the macro definition's scope. Then use this reference to construct an instance of that type via `new`.
+- [buildingCustomASTs](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/buildingCustomASTs) – Quotes Reflection ASTs are powerful, but how do you know the right way to build one? This example demonstrates how to inspect compiler-generated ASTs for a given Scala code. You can then mimic the compiler when constructing similar ASTs.
+- [contextParamResolution](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/contextParamResolution) – showcases how to use Quotes Reflection to construct an AST for a method call that takes context parameters. Shows how to resolve those parameters using Quotes Reflection API.
+
 
 ## Tips and Tricks
 
-- When working with TASTy reflect, all of the API available to you is defined in the `dotty/library/src/scala/quoted/Quotes.scala`.
+- When working with reflect API, all of the API available to you is defined in the `dotty/library/src/scala/quoted/Quotes.scala`.
   As a rule, for every reflected type `X`, you have a group of extension methods in `trait XMethods` which defines all of the methods you can call on `X`.
   For example, for `Symbol`, you can search for `SymbolMethods` in `Quotes.scala` to see what you can do with it.
 - `TypeTree.of[T]` gives you a `quotes.reflect.TypeTree`. To get a `quotes.reflect.TypeRepr`, you can call `TypeRepr.of[T]`.

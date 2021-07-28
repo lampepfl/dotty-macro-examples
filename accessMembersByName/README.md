@@ -8,8 +8,8 @@ call. We discuss how to call the method using such a manual inference.
 
 The techniques used here are:
 
-- TASTy Reflect for typed AST tree manipulation
+- Quotes Reflection for typed AST tree manipulation
 - Unlifting a literal from an expression to a value
 - Learning which exactly trees to construct via `println(('{ ... }).asTerm)` technique
-- Working with the Scala 3 Reflection API, learning how exactly to construct the TASTy nodes
-- Widening a TASTy type to prevent it from been to narrow
+- Working with the Scala 3 Reflection API, learning how exactly to construct the AST nodes
+- Widening a reflect type to prevent it from been to narrow

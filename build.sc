@@ -16,6 +16,7 @@ object outOfScopeTypeParam            extends DottyModule
 object outOfScopeClassConstructor     extends DottyModule
 object buildingCustomASTs             extends DottyModule
 object contextParamResolution         extends DottyModule
+object newWith                        extends DottyModule
 
 object test extends Module {
   def all = List(

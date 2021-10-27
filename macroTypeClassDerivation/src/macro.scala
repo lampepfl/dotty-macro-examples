@@ -63,7 +63,7 @@ def deriveCaseClassShow[T](using quotes: Quotes, tpe: Type[T]): Expr[Show[T]] =
   }
 
 
-/** Look up the Shot[$t] typeclass for a given type t */
+/** Look up the Show[$t] typeclass for a given type t */
 def lookupShowFor(using quotes: Quotes)(t: quotes.reflect.TypeRepr): quotes.reflect.Term =
   import quotes.reflect.*
   val showTpe = TypeRepr.of[Show]

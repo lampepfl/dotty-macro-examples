@@ -30,6 +30,7 @@ To run an example:
 - [contextParamResolution](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/contextParamResolution) – showcases how to use Quotes Reflection to construct an AST for a method call that takes context parameters. Shows how to resolve those parameters using Quotes Reflection API.
 - [passVarargsIntoAST](https://github.com/lampepfl/dotty-macro-examples/tree/master/passVarargsIntoAST) - showcases how to pass varargs as parameters into the AST of the method 
 - [primaryConstructor](https://github.com/lampepfl/dotty-macro-examples/tree/master/primaryConstructor) - showcases how to use primary constructor `Symbol` and `Term`.
+- [referenceVariableFromOtherExpr](https://github.com/lampepfl/dotty-macro-examples/tree/master/referenceVariableFromOtherExpr) - how to use a variable at an `Expr` other than where it is defined at.
 
 ## Tips and Tricks
 

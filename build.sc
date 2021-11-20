@@ -18,6 +18,7 @@ object buildingCustomASTs             extends DottyModule
 object contextParamResolution         extends DottyModule
 object passVarargsIntoAST             extends DottyModule
 object primaryConstructor             extends DottyModule
+object referenceVariableFromOtherExpr extends DottyModule
 
 object test extends Module {
   def all = List(
@@ -35,6 +36,7 @@ object test extends Module {
     contextParamResolution,
     passVarargsIntoAST,
     primaryConstructor,
+    referenceVariableFromOtherExpr,
   )
 
   def run = T {

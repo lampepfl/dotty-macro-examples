@@ -2,6 +2,7 @@ import mill._, scalalib._
 
 trait DottyModule extends ScalaModule {
   def scalaVersion = "3.1.0"
+  def scalacOptions = Seq("-Xcheck-macros")
 }
 
 object abstractTypeclassBody          extends DottyModule

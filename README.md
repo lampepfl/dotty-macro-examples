@@ -16,7 +16,7 @@ To run an example:
 
 ## Examples
 
-- [abstractTypeClassBody](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/abstractTypeClassBody) – how to abstract a body of a function inside a macro-generated class into a separate macro.
+- [abstractTypeclassBody](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/abstractTypeclassBody) – how to abstract a body of a function inside a macro-generated class into a separate macro.
 - [accessMembersByName](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/accessMembersByName) – access an arbitrary member of a value given this member's name as a `String`.
 - [accessEnclosingParameters](https://github.com/lampepfl/dotty-macro-examples/tree/master/accessEnclosingParameters) - access the arguments passed to the enclosing method of the macro call.
 - [defaultParamsInference](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/defaultParamsInference) – given a case class with default parameters, obtain the values of these default parameters.
@@ -28,7 +28,9 @@ To run an example:
 - [outOfScopeClassConstructor](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/outOfScopeClassConstructor) – get a reference to a type that is not available to the macro definition's scope. Then use this reference to construct an instance of that type via `new`.
 - [buildingCustomASTs](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/buildingCustomASTs) – Quotes Reflection ASTs are powerful, but how do you know the right way to build one? This example demonstrates how to inspect compiler-generated ASTs for a given Scala code. You can then mimic the compiler when constructing similar ASTs.
 - [contextParamResolution](https://github.com/anatoliykmetyuk/dotty-macro-examples/tree/master/contextParamResolution) – showcases how to use Quotes Reflection to construct an AST for a method call that takes context parameters. Shows how to resolve those parameters using Quotes Reflection API.
-
+- [passVarargsIntoAST](https://github.com/lampepfl/dotty-macro-examples/tree/master/passVarargsIntoAST) - showcases how to pass varargs as parameters into the AST of the method 
+- [primaryConstructor](https://github.com/lampepfl/dotty-macro-examples/tree/master/primaryConstructor) - showcases how to use primary constructor `Symbol` and `Term`.
+- [referenceVariableFromOtherExpr](https://github.com/lampepfl/dotty-macro-examples/tree/master/referenceVariableFromOtherExpr) - how to use a variable at an `Expr` other than where it is defined at.
 
 ## Tips and Tricks
 

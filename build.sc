@@ -1,7 +1,7 @@
 import mill._, scalalib._
 
 trait DottyModule extends ScalaModule {
-  def scalaVersion = "3.0.0"
+  def scalaVersion = "3.1.0"
 }
 
 object abstractTypeclassBody          extends DottyModule
@@ -16,6 +16,9 @@ object outOfScopeTypeParam            extends DottyModule
 object outOfScopeClassConstructor     extends DottyModule
 object buildingCustomASTs             extends DottyModule
 object contextParamResolution         extends DottyModule
+object passVarargsIntoAST             extends DottyModule
+object primaryConstructor             extends DottyModule
+object referenceVariableFromOtherExpr extends DottyModule
 
 object test extends Module {
   def all = List(
@@ -31,6 +34,9 @@ object test extends Module {
     outOfScopeClassConstructor,
     buildingCustomASTs,
     contextParamResolution,
+    passVarargsIntoAST,
+    primaryConstructor,
+    referenceVariableFromOtherExpr,
   )
 
   def run = T {

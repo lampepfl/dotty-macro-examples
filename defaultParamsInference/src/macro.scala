@@ -8,6 +8,7 @@ def defaultParmasImpl[T](using quotes: Quotes, tpe: Type[T]): Expr[Map[String, A
   import quotes.reflect.*
   val sym = TypeTree.of[T].symbol
   val comp = sym.companionClass
+  val mod = Ref(sym.companionModule)
   val names =
     for p <- sym.caseFields if p.flags.is(Flags.HasDefault)
     yield p.name
@@ -18,7 +19,7 @@ def defaultParmasImpl[T](using quotes: Quotes, tpe: Type[T]): Expr[Map[String, A
   val idents: List[Ref] =
     for case deff @ DefDef(name, _, _, _) <- body
     if name.startsWith("$lessinit$greater$default")
-    yield Ref(deff.symbol)
+    yield mod.select(deff.symbol)
   val identsExpr: Expr[List[Any]] =
     Expr.ofList(idents.map(_.asExpr))
 

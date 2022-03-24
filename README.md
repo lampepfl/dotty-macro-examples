@@ -31,6 +31,7 @@ To run an example:
 - [passVarargsIntoAST](https://github.com/lampepfl/dotty-macro-examples/tree/master/passVarargsIntoAST) - showcases how to pass varargs as parameters into the AST of the method 
 - [primaryConstructor](https://github.com/lampepfl/dotty-macro-examples/tree/master/primaryConstructor) - showcases how to use primary constructor `Symbol` and `Term`.
 - [referenceVariableFromOtherExpr](https://github.com/lampepfl/dotty-macro-examples/tree/master/referenceVariableFromOtherExpr) - how to use a variable at an `Expr` other than where it is defined at.
+- [reflectionLambda](https://github.com/lampepfl/dotty-macro-examples/tree/master/reflectionLambda) - how to create a lambda via TASTy Reflection.
 
 ## Tips and Tricks
 

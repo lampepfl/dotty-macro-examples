@@ -21,4 +21,7 @@ lazy val contextParamResolution = DottyProject("contextParamResolution")
 lazy val passVarargsIntoAST = DottyProject("passVarargsIntoAST")
 lazy val primaryConstructor = DottyProject("primaryConstructor")
 lazy val referenceVariableFromOtherExpr = DottyProject("referenceVariableFromOtherExpr")
+lazy val inlineDemo = DottyProject("inlineDemo")
+lazy val logAST = DottyProject("logAST")
+lazy val symbolTest = DottyProject("symbolTest").dependsOn(logAST)
 

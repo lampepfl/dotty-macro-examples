@@ -2,6 +2,7 @@ import mill._, scalalib._
 
 trait DottyModule extends ScalaModule {
   def scalaVersion = "3.1.0"
+  def scalacOptions = Seq("-Xcheck-macros")
 }
 
 object abstractTypeclassBody          extends DottyModule
@@ -19,6 +20,7 @@ object contextParamResolution         extends DottyModule
 object passVarargsIntoAST             extends DottyModule
 object primaryConstructor             extends DottyModule
 object referenceVariableFromOtherExpr extends DottyModule
+object reflectionLambda               extends DottyModule
 
 object test extends Module {
   def all = List(
@@ -37,6 +39,7 @@ object test extends Module {
     passVarargsIntoAST,
     primaryConstructor,
     referenceVariableFromOtherExpr,
+    reflectionLambda,
   )
 
   def run = T {

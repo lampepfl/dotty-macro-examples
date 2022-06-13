@@ -4,6 +4,7 @@ def DottyProject(name: String): Project =
   Project.apply(name, file(name)).settings(
     scalaVersion := "3.1.0",
     Compile / scalaSource := baseDirectory.value / "src",
+    libraryDependencies += "org.scala-lang" %% "scala3-compiler" % scalaVersion.value,
   )
 
 lazy val abstractTypeclassBody = DottyProject("abstractTypeclassBody")
@@ -21,9 +22,10 @@ lazy val contextParamResolution = DottyProject("contextParamResolution")
 lazy val passVarargsIntoAST = DottyProject("passVarargsIntoAST")
 lazy val primaryConstructor = DottyProject("primaryConstructor")
 lazy val referenceVariableFromOtherExpr = DottyProject("referenceVariableFromOtherExpr")
-lazy val reflectionLambda = DottyProject("referenceVariableFromOtherExpr")
+lazy val reflectionLambda = DottyProject("reflectionLambda")
 
 lazy val inlineDemo = DottyProject("inlineDemo")
 lazy val logAST = DottyProject("logAST")
 lazy val symbolTest = DottyProject("symbolTest").dependsOn(logAST)
+lazy val sqlDemo = DottyProject("sqlDemo")
 

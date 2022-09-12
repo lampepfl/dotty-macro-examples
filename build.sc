@@ -1,7 +1,7 @@
 import mill._, scalalib._
 
 trait DottyModule extends ScalaModule {
-  def scalaVersion = "3.1.0"
+  def scalaVersion = "3.1.3"
   def scalacOptions = Seq("-Xcheck-macros")
 }
 

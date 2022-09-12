@@ -2,7 +2,7 @@ Global / idePackagePrefix := Some("dummy")
 
 def DottyProject(name: String): Project =
   Project.apply(name, file(name)).settings(
-    scalaVersion := "3.1.0",
+    scalaVersion := "3.1.3",
     Compile / scalaSource := baseDirectory.value / "src",
   )
 

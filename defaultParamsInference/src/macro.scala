@@ -1,12 +1,16 @@
 package dummy
 
+import scala.annotation.experimental
 import scala.quoted.*
 
 inline def defaultParams[T]: Map[String, Any] = ${ defaultParmasImpl[T] }
 
+@experimental // because .typeArgs is @experimental
 def defaultParmasImpl[T](using quotes: Quotes, tpe: Type[T]): Expr[Map[String, Any]] =
   import quotes.reflect.*
-  val sym = TypeTree.of[T].symbol
+  val typ = TypeRepr.of[T]
+  val sym = typ.typeSymbol
+  val typeArgs = typ.typeArgs
   val comp = sym.companionClass
   val mod = Ref(sym.companionModule)
   val names =
@@ -16,10 +20,10 @@ def defaultParmasImpl[T](using quotes: Quotes, tpe: Type[T]): Expr[Map[String, A
     Expr.ofList(names.map(Expr(_)))
 
   val body = comp.tree.asInstanceOf[ClassDef].body
-  val idents: List[Ref] =
+  val idents: List[Term] =
     for case deff @ DefDef(name, _, _, _) <- body
     if name.startsWith("$lessinit$greater$default")
-    yield mod.select(deff.symbol)
+    yield mod.select(deff.symbol).appliedToTypes(typeArgs)
   val identsExpr: Expr[List[Any]] =
     Expr.ofList(idents.map(_.asExpr))
 
